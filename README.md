@@ -28,7 +28,7 @@ How to Play
 
 The board is set up using numbered rows (R) and columns (C) as depicted below.
 
-	     	       C1	     	 C2		    C3
+	    	   C1	  	 C2  	   C3
                     |         |
        R1           |         |
                     |         |
