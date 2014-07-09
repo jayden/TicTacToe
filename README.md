@@ -3,7 +3,6 @@ TicTacToe
 
 A Tic Tac Toe program written in C#.
 
----------
 File List
 ---------
 
@@ -15,7 +14,6 @@ PerfectPlayer.cs
 Player.cs
 Program.cs
 
------
 Setup
 -----
 
@@ -25,7 +23,6 @@ You can also invoke the C# compiler (csc.exe) at a standard Command Prompt windo
 
 This command will compile all the C# files in the current directory and output the program as 'TicTacToe.exe'.
 
------------
 How to Play
 -----------
 
