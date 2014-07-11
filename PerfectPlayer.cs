@@ -91,14 +91,8 @@ namespace TicTacToe
                 return availableMoves; // return an empty list
             }
             // else, iterate through board and look for empty nodes
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                {
-                    if (node[r, c].content == Player.Empty)
-                        availableMoves.Add(new int[] { r, c });
-                }
-            }
+            board.TraverseBoard((r, c) => { if (node[r, c].content == Player.Empty) availableMoves.Add(new int[] { r, c }); });
+
             return availableMoves;
         }
 

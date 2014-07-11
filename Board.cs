@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
 
 namespace TicTacToe
 {
@@ -15,42 +17,20 @@ namespace TicTacToe
         public Board()
         {
             node = new Node[rows,cols];
-
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                {
-                    // create element in array
-                    node[r, c] = new Node(r, c);
-                }
-            }
+            TraverseBoard((r, c) => node[r, c] = new Node(r, c)); 
         }
 
         // clears contents of the board
         public void init()
         {
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                {
-                    node[r, c].clear();
-                }
-            }
+            TraverseBoard((r, c) => node[r, c].clear());
         }
 
         public bool isDraw()
         {
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                {
-                    // game is not a draw if a space is empty
-                    if (node[r, c].content == Player.Empty)
-                        return false;
-                }
-            }
+            return TraverseBoard( (r, c) => node[r, c].content == Player.Empty ? false : true );
 
-            return true; // no empty spaces and no winner - it's a draw
+            //return true; // no empty spaces and no winner - it's a draw
         }
 
         // winning patterns in hex
@@ -66,20 +46,10 @@ namespace TicTacToe
         public bool hasWon(Player p)
         {
             // starting hex pattern (empty)
-            int pattern = 0x0; 
+            int pattern = 0x0;
 
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                {
-                    // if node contains player...
-                    if (node[r, c].content == p)
-                    {
-                        // shift a 1 at the bit position and bit-wise OR with the pattern
-                        pattern |= (1 << (r * cols + c));
-                    }
-                }
-            }
+            TraverseBoard( (r, c) => { if (node[r, c].content == p) pattern |= (1 << (r * cols + c)); });
+
             // check
             foreach (var winningPattern in winningPatterns)
             {
@@ -93,19 +63,50 @@ namespace TicTacToe
         // draw the board 
         public void draw()
         {
-            for (int r = 0; r < rows; r++)
+            Action<int, int> drawColumns = (r, c) =>
             {
-                for ( int c = 0; c < cols; c++)
-                {
-                    node[r, c].draw();
-                    if (c < cols - 1)
-                        Console.Write("|");
-                }
+                node[r, c].draw();
+                if (c < cols - 1)
+                    Console.Write("|");
+            };
 
+            Action<int> drawRows = r =>
+            {
                 Console.WriteLine();
                 if (r < rows - 1)
                     Console.WriteLine("-----------");
+            };
+
+            TraverseBoard(drawColumns, drawRows);
+        }
+
+        // Board traversal function
+        public void TraverseBoard(Action<int, int> action, Action<int> action2 = null)
+        {
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    action(r, c);
+                }
+
+                // if parameter is not null, use correct value
+                if (action2 != null)
+                    action2(r);
             }
+        }
+        // Overloaded traversal function for returning bool
+        public bool TraverseBoard(Func<int, int, bool> func)
+        {
+            for (int r = 0; r < rows; r++)
+            {
+                for (int c = 0; c < cols; c++)
+                {
+                    if (!func(r, c))
+                        return false;
+                }
+            }
+            return true;
         }
     }
 }

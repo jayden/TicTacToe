@@ -66,6 +66,7 @@ namespace TicTacToe
 
                         if (move.Length == 2 && input.Replace(" ", string.Empty).All(char.IsDigit))
                         {
+                            
                             invalidInput = false;
                             row = int.Parse(move[0]) - 1;
                             col = int.Parse(move[1]) - 1;
