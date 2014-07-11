@@ -7,13 +7,16 @@ namespace TicTacToe
     {
         public Player content;
         int row, col;
+        private static int position = 0;
+
+        public int Position { get; set; }
 
         public Node(int row, int col)
         {
             // set node to empty with coordinates
             this.row = row;
             this.col = col;
-            clear();
+            this.Position = ++position;
         }
 
         public void clear()

@@ -60,21 +60,19 @@ namespace TicTacToe
                     // ask for valid move and repeat if invalid
                     do
                     {
-                        Console.Write("Player X, select a move (row[1-3] column[1-3]): ");
+                        Console.Write("Player X, select a move from 1-9: ");
                         string input = Console.ReadLine().Trim();
-                        string[] move = input.Split(' ');
+                        int pos;
 
-                        if (move.Length == 2 && input.Replace(" ", string.Empty).All(char.IsDigit))
+                        if (input.All(char.IsDigit) && int.TryParse(input, out pos) && (pos >= 1 && pos <= 9) )
                         {
-                            
                             invalidInput = false;
-                            row = int.Parse(move[0]) - 1;
-                            col = int.Parse(move[1]) - 1;
+                            board.TraverseBoard((r, c) => { if (board.node[r, c].Position == pos) { row = r; col = c; } }); 
 
                         }
                         else
                         {
-                            Console.WriteLine("Invalid move. Move must contain both a row and column");
+                            Console.WriteLine("Invalid move. Move must be between 1 and 9.");
                             invalidInput = true;
                         }
 
@@ -86,7 +84,7 @@ namespace TicTacToe
                     int[] computerMove = ai.move();
                     row = computerMove[0];
                     col = computerMove[1];
-                    Console.WriteLine("Computer has moved to row {0} column {1}!", row+1, col+1);
+                    Console.WriteLine("Computer has moved to {0}!", board.node[row, col].Position);
                 }
 
                 // check for valid row/col selection and if the node is empty

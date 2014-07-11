@@ -28,9 +28,12 @@ namespace TicTacToe
 
         public bool isDraw()
         {
-            return TraverseBoard( (r, c) => node[r, c].content == Player.Empty ? false : true );
+            bool isDraw = true;
+            // if any spaces are empty, game is not over
+            TraverseBoard((r, c) => { if (node[r, c].content == Player.Empty) isDraw = false; } );
 
-            //return true; // no empty spaces and no winner - it's a draw
+            // no empty spaces and no winner - it's a draw
+            return isDraw;
         }
 
         // winning patterns in hex
@@ -80,7 +83,7 @@ namespace TicTacToe
             TraverseBoard(drawColumns, drawRows);
         }
 
-        // Board traversal function
+        // Board traversal function. action2 is an optional parameter
         public void TraverseBoard(Action<int, int> action, Action<int> action2 = null)
         {
             for (int r = 0; r < rows; r++)
@@ -94,19 +97,6 @@ namespace TicTacToe
                 if (action2 != null)
                     action2(r);
             }
-        }
-        // Overloaded traversal function for returning bool
-        public bool TraverseBoard(Func<int, int, bool> func)
-        {
-            for (int r = 0; r < rows; r++)
-            {
-                for (int c = 0; c < cols; c++)
-                {
-                    if (!func(r, c))
-                        return false;
-                }
-            }
-            return true;
         }
     }
 }
