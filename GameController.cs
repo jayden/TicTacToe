@@ -96,7 +96,7 @@ namespace TicTacToe
                     invalidMove = false;
                 }
                 else
-                    Console.WriteLine("This move in row {0} column {1} is invalid. Please choose another move", (row + 1), (col + 1));
+                    Console.WriteLine("This space is already taken. Please choose another move");
             } while (invalidMove);
         }
 
