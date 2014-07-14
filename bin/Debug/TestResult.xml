@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Jayden\Documents\Visual Studio 2012\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe" total="16" errors="0" failures="0" not-run="2" inconclusive="0" ignored="2" skipped="0" invalid="0" date="2014-07-13" time="23:58:18">
+  <environment nunit-version="2.6.3.13283" clr-version="2.0.50727.6413" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.3\bin" machine-name="BEEMO" user="Jayden" user-domain="beemo" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\Jayden\Documents\Visual Studio 2012\Projects\TicTacToe\TicTacToe\bin\Debug\TicTacToe.exe" executed="True" result="Success" success="True" time="0.186" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="TicTacToe" executed="True" result="Success" success="True" time="0.161" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="BoardTest" executed="True" result="Success" success="True" time="0.131" asserts="0">
+            <results>
+              <test-case name="TicTacToe.BoardTest.ClearBoard" executed="True" result="Success" success="True" time="0.048" asserts="9" />
+              <test-case name="TicTacToe.BoardTest.DrawBoard" executed="False" result="Ignored">
+                <reason>
+                  <message><![CDATA[Need to finish writing this...]]></message>
+                </reason>
+              </test-case>
+              <test-case name="TicTacToe.BoardTest.InitializeBoard" executed="True" result="Success" success="True" time="0.006" asserts="1" />
+              <test-case name="TicTacToe.BoardTest.IsDraw" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+              <test-case name="TicTacToe.BoardTest.IsNotDraw" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-suite type="ParameterizedTest" name="ShouldWin" executed="True" result="Success" success="True" time="0.024" asserts="0">
+                <results>
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(448)" executed="True" result="Success" success="True" time="0.003" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(56)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(7)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(292)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(146)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(73)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(273)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                  <test-case name="TicTacToe.BoardTest.ShouldWin(84)" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+                </results>
+              </test-suite>
+              <test-case name="TicTacToe.BoardTest.TraverseTest" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="GameControllerTest" executed="True" result="Inconclusive" success="False" time="0.003" asserts="0">
+            <results>
+              <test-case name="TicTacToe.GameControllerTest.InitGame" executed="False" result="Ignored">
+                <reason>
+                  <message><![CDATA[Need to finish this test...]]></message>
+                </reason>
+              </test-case>
+            </results>
+          </test-suite>
+          <test-suite type="TestFixture" name="NodeTest" executed="True" result="Success" success="True" time="0.018" asserts="0">
+            <results>
+              <test-case name="TicTacToe.NodeTest.InitializeNode" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="TicTacToe.NodeTest.NodeClear" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="TicTacToe.NodeTest.NodeDrawPlayers" executed="True" result="Success" success="True" time="0.009" asserts="3" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
