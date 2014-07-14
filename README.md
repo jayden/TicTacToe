@@ -6,13 +6,16 @@ A Tic Tac Toe program written in C#.
 File List
 ---------
 
-Board.cs
-GameController.cs
-GameState.cs
-Node.cs
-PerfectPlayer.cs
-Player.cs
-Program.cs
+	Board.cs
+	GameController.cs
+	GameState.cs
+	Node.cs
+	PerfectPlayer.cs
+	Player.cs
+	Program.cs
+	IConsoleWrapper.cs
+	ConsoleWrapper.cs
+	
 
 Setup
 -----
@@ -26,20 +29,20 @@ This command will compile all the C# files in the current directory and output t
 How to Play
 -----------
 
-The board is set up using numbered rows (R) and columns (C) as depicted below.
+The board is set up as depicted below.
 
-	    	   C1	  	 C2  	   C3
+	    	   	  	 
                     |         |
-       R1           |         |
-                    |         |
-            ________|_________|________
-                    |         |
-       R2           |         |
+               1    |    2    |   3	
                     |         |
             ________|_________|________
                     |         |
+               4    |    5    |   6
                     |         |
-       R3           |         |
+            ________|_________|________
+                    |         |
+               7    |    8    |   9
+                    |         |
                     |         |
             
-You will be Player 'X' and will always have the first move. To select a move, type in the desired row and column numbers. For example, if you wanted to move to the center of the board, type in "2 2" (without the quotes).
+You will be Player 'X' and will always have the first move. To select a move, type in the desired numbered space. For example, if you wanted to move to the center of the board, type in "5" (without the quotes).
