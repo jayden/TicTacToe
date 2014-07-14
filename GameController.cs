@@ -60,7 +60,7 @@ namespace TicTacToe
                     // ask for valid move and repeat if invalid
                     do
                     {
-                        Console.Write("Player X, select a move from 1-9: ");
+                        Console.Write("Player X, select a move from 1-{0}: ", board.node.Length);
                         string input = Console.ReadLine().Trim();
                         int pos;
 
@@ -72,7 +72,7 @@ namespace TicTacToe
                         }
                         else
                         {
-                            Console.WriteLine("Invalid move. Move must be between 1 and 9.");
+                            Console.WriteLine("Invalid move. Move must be between 1 and {0}.", board.node.Length);
                             invalidInput = true;
                         }
 

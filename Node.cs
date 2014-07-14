@@ -6,10 +6,12 @@ namespace TicTacToe
     public class Node
     {
         public Player content;
-        int row, col;
+        private int row, col;
         private static int position = 0;
 
         public int Position { get; set; }
+        public int Row { get {return row;} }
+        public int Col { get {return col;} }
 
         public Node(int row, int col)
         {
@@ -26,16 +28,16 @@ namespace TicTacToe
         }
 
         // draws the appropriate marker based on player type
-        public void draw()
+        public void draw(IConsoleWrapper consoleWrapper)
         {
             switch(content)
             {
                 case Player.PlayerX:
-                    Console.Write(" X "); break;
+                    consoleWrapper.Write(" X "); break;
                 case Player.PlayerO:
-                    Console.Write(" O "); break;
+                    consoleWrapper.Write(" O "); break;
                 case Player.Empty:
-                    Console.Write("   "); break;
+                    consoleWrapper.Write("   "); break;
             }
         }
     }

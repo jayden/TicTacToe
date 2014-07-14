@@ -12,12 +12,14 @@ namespace TicTacToe
 
         public Node[,] node; // cells on board (9 total)
         public int currentRow, currentCol; // current position on board
+        private ConsoleWrapper wrapper;
 
         // initializes game board
         public Board()
         {
             node = new Node[rows,cols];
-            TraverseBoard((r, c) => node[r, c] = new Node(r, c)); 
+            TraverseBoard((r, c) => node[r, c] = new Node(r, c));
+            wrapper = new ConsoleWrapper();
         }
 
         // clears contents of the board
@@ -68,16 +70,16 @@ namespace TicTacToe
         {
             Action<int, int> drawColumns = (r, c) =>
             {
-                node[r, c].draw();
+                node[r, c].draw(wrapper);
                 if (c < cols - 1)
-                    Console.Write("|");
+                    wrapper.Write("|");
             };
 
             Action<int> drawRows = r =>
             {
                 Console.WriteLine();
                 if (r < rows - 1)
-                    Console.WriteLine("-----------");
+                    wrapper.WriteLine("-----------");
             };
 
             TraverseBoard(drawColumns, drawRows);
@@ -92,7 +94,6 @@ namespace TicTacToe
                 {
                     action(r, c);
                 }
-
                 // if parameter is not null, use correct value
                 if (action2 != null)
                     action2(r);
